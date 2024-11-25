@@ -1,0 +1,34 @@
+.horizontallyOverflow {
+  margin-top: var(--space-lg);
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.4);
+  overflow-x: scroll;
+  scrollbar-color: #9978e280 transparent;
+  scrollbar-width: thin;
+}
+.horizontallyOverflow::-webkit-scrollbar {
+  display: none;
+}
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 25px 0;
+}
+.itemWrapper {
+  flex: 0 0 min(50px);
+  align-self: center;
+  margin: 0 20px;
+  text-align: center;
+  font-size: clamp(14px, 13px + 0.25vw, 16px);
+  font-weight: 500;
+  text-shadow: 0.5px 0.5px var(--white);
+  letter-spacing: 0.1em;
+  a {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.rain {
+  color: var(--accent);
+}

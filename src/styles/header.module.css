@@ -1,0 +1,7 @@
+.flexContainer {
+  composes: spaceBetween from './utils.module.css';
+  padding: var(--space-sm) 0;
+  color: var(--black);
+  text-shadow: 0.7px 0.7px var(--white);
+  letter-spacing: 0.2em;
+}

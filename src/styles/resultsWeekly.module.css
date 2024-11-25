@@ -1,0 +1,36 @@
+.container {
+  margin-top: var(--space-lg);
+  color: var(--black);
+  text-shadow: 0.5px 0.5px var(--white); 
+  letter-spacing: 0.1em;
+}
+.title {
+  text-align: center;
+}
+.outerContainer {
+  margin-top: var(--space-sm);
+}
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 50px 0 0;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.4);
+}
+.flexContainer + .flexContainer {
+  margin-top: var(--space-sm);
+}
+.contentsContainer {
+  flex: 0 0 15%;
+}
+.innerContainer > img {
+  margin: 0 auto;
+}
+.rain {
+  color: var(--accent);
+}
+.tempText {
+  font-size: 16px;
+}

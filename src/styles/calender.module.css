@@ -1,0 +1,17 @@
+.calender {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+}
+.calender > li {
+  width: 60px;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.calender  p {
+  text-align: center;
+}
+.focus {
+  background-color: rgba(0,0,0,0.5);
+}

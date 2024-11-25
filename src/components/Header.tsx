@@ -1,20 +1,17 @@
-import { Link } from "react-router-dom";
+import Nav from './Nav';
+import Logo from './Logo';
+import Container from './Container';
+import styles from '../styles/header.module.css';
 
 const Header = () => {
   return (
     <header>
-      <h1>React TypeScript Weather App</h1>
-      <ul>
-        <Link to="/">
-          <li>TOP</li>
-        </Link>
-        <Link to="/forecast">
-          <li>天気予報</li>
-        </Link>
-        <Link to="/info-disaster">
-          <li>災害情報</li>
-        </Link>
-      </ul>
+      <Container large>
+        <div className={styles.flexContainer}>
+          <Logo/>
+          <Nav/>
+        </div>
+      </Container>
     </header>
   );
 };

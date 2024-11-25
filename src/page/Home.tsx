@@ -1,16 +1,16 @@
-import Header from "../components/Header";
 import Form from "../components/Form";
 import Results from "../components/Results";
+import DetailChart from "../components/DetailChart";
+import ListButton from "../components/ListButton";
+import Layout from "../layout";
 
-const Home = () => {
+export default function Home() {
   return (
-    <>
-      <Header/>
-      <Form/>
+      <Layout>
+      <Form />
+      <ListButton/>
+      <DetailChart/>
       <Results/>
-    </>
-    
+      </Layout>
   );
 };
-
-export default Home;

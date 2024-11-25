@@ -1,0 +1,7 @@
+.footer {
+  text-align: center;
+  padding: var(--space-xs) 0;
+  color: var(--black);
+  text-shadow: 0.5px 0.5px var(--white);
+  letter-spacing: 0.2em;
+}

@@ -1,0 +1,15 @@
+.title {
+  composes: title from './form.module.css'; 
+}
+.form {
+  composes: form from './form.module.css';
+}
+.input {
+  composes: input from './form.module.css';
+}
+.input::placeholder {
+  color: var(--gray-75);
+  text-shadow: 0.5px 0.5px var(--white);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}

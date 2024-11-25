@@ -1,0 +1,7 @@
+.heading {
+  margin-top: var(--space-lg);
+  margin-bottom: 20px;
+  font-size: var(--heading2);
+  text-shadow: 0.5px 0.5px var(--white);
+  text-align: center;
+}

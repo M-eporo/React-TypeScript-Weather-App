@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  max-width: 110px;
+  margin-left: auto;
+}
+.topBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0.8em 1.2em;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+.list {
+  position: static;
+  display: none;
+  width: 100%;
+  margin-top: 1.4em;
+}
+.list.open {
+  display: revert;
+  position: absolute;
+  top: 25px;
+  padding: 0.8em 1.2em;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.4);
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-10);
+  cursor: pointer;
+}
+.item + .item {
+  margin-top: 0.8em;
+}
+svg {
+  color: var(--gray-10);
+}
+
