@@ -27,3 +27,4 @@ dist-ssr
 *storybook.log
 stories/
 memo.text
+.storybook/
