@@ -34,10 +34,14 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   const [weeklyData, setWeeklyData] = useState<WeeklyDataType>([]);
   //LineChartで使用
   const [lineChartData, setLineChartData] = useState<LineChartDataType>([]);
-  //Detailページのアイコンボタン
+  //Detailページのリストアイコンボタンのトップアイコン
+  //デフォルトは温度
   const [topIcon, setTopIcon] = useState<string>(
     "fa-solid fa-temperature-three-quarters"
   );
+  //リストボタンに応じたデータを取得するためのアイコンの種類
+  //デフォルトは温度
+  const [iconSort, setIconSort] = useState<string>("temperature");
   //Detailページの日付ボタンに応じたデータを取得
   const [specificDateData, setSpecificDateData] = useState(0);
   //specificDateDataに応じた日付のデータ
@@ -166,12 +170,11 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     lineChartData: lineChartData,
     topIcon: topIcon,
     setTopIcon: setTopIcon,
+    iconSort: iconSort,
+    setIconSort: setIconSort,
     setSpecificDateData: setSpecificDateData,
     detailChartData: detailChartData,
   };
-
-  console.log(onedayData);
-  console.log(allData);
   return (
     <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );

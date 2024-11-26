@@ -5,10 +5,10 @@
 }
 .topBtn {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   align-items: center;
-  padding: 0.8em 1.2em;
+  padding: 0.8em 0;
   border-radius: 5px;
   background-color: rgba(0,0,0,0.4);
   cursor: pointer;
@@ -18,27 +18,24 @@
   display: none;
   width: 100%;
   margin-top: 1.4em;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.4);
 }
 .list.open {
   display: revert;
   position: absolute;
   top: 25px;
-  padding: 0.8em 1.2em;
-  border-radius: 5px;
-  background-color: rgba(0,0,0,0.4);
 }
 .item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
+  margin: 1em 0;
   align-items: center;
   font-size: 14px;
   font-weight: 600;
   color: var(--gray-10);
   cursor: pointer;
-}
-.item + .item {
-  margin-top: 0.8em;
 }
 svg {
   color: var(--gray-10);

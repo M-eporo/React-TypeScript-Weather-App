@@ -33,11 +33,12 @@ const TempLineChart = ({ lineChartData, mintemp, maxtemp }: Props) => {
             scale="point"
             interval={2}
             dataKey="time"
-            tick={{ fontSize: "13px", fill: "#333" }}
+            tick={{ fontSize: "12px", fill: "#333" }}
           />
           <YAxis
             domain={[mintemp - 2, maxtemp + 2]}
-            tick={{ fontSize: "13px", fill: "#333" }}
+            tick={{ fontSize: "12px", fill: "#333" }}
+            allowDecimals={false}
           />
           <Tooltip
             contentStyle={{ backgroundColor: "transparent", border: "none" }}

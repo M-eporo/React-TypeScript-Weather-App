@@ -19,8 +19,10 @@ export default function DetailChart() {
   if (!contextValues) {
     return <p>データが存在しません。</p>
   }
-  const { topIcon, detailChartData } = contextValues;
-  
+  const { topIcon, iconSort, detailChartData } = contextValues;
+  console.log(topIcon);
+  console.log(iconSort);
+  console.log(detailChartData);
   return (
     <p>asldjk</p>
   );

@@ -14,6 +14,8 @@ export type AppContextType = {
   lineChartData: LineChartDataType;
   topIcon: string;
   setTopIcon: React.Dispatch<React.SetStateAction<string>>;
+  iconSort: string;
+  setIconSort: React.Dispatch<React.SetStateAction<string>>;
   setSpecificDateData: React.Dispatch<React.SetStateAction<number>>;
   detailChartData: HoursType;
 };
