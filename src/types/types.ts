@@ -64,6 +64,17 @@ export type ButtonType = {
   padding: string;
   context?: boolean;
 };
+
+export type AreaChartData = {
+  temp_c: number;
+  humidity: number;
+  precip_mm: number;
+  snow_cm: number;
+  pressure_mb: number;
+  gust_kph: number;
+  uv: number;
+}[];
+
 type LocationType = {
   country: string;
   lat: number;

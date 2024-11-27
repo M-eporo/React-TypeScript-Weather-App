@@ -1,6 +1,7 @@
 import Layout from "../layout/index";
 import Calender from "../components/Calender";
 import ListButton from "../components/ListButton";
+import ResultsDetail from "../components/ResultsDetail";
 import styles from "../styles/detail.module.css";
 
 export default function Detail() {
@@ -9,7 +10,8 @@ export default function Detail() {
       <Layout>
         <h2 className={styles.heading}>気象状況</h2>
         <Calender />
-        <ListButton/>
+        <ListButton />
+        <ResultsDetail />
       </Layout>
     </>
   );

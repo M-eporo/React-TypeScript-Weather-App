@@ -138,6 +138,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
           }
         }
       );
+      
       setDetailChartData(dataForDetailChart);
     } catch (err) {
       alert(`${err.message}。エラーです。`);
