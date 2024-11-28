@@ -8,8 +8,9 @@
   aspect-ratio: 1 / 1;
   border: 1px solid #000;
   border-radius: 50%;
+  cursor: pointer;
 }
-.calender  p {
+.calender p {
   text-align: center;
 }
 .focus {

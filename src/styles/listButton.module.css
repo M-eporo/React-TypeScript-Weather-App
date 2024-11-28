@@ -25,6 +25,7 @@
   display: revert;
   position: absolute;
   top: 25px;
+  z-index: 999;
 }
 .item {
   display: flex;

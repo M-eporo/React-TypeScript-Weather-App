@@ -23,20 +23,25 @@ export default function DetailChart({ chartData }: Props) {
   const contextValues: AppContextType | undefined = useContext(AppContext);
   if (!contextValues) {
     return <p>データが存在しません。</p>
-  }
-  const { topIcon, iconSort, detailChartData } = contextValues;
-  
+  } else if (!contextValues.isData) {
+    return <p>データが未取得です。</p>
+  } else {
     return (
-      <div className="styles.chartContainer">
+      <div className={styles.chartContainer}>
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart>
+          <AreaChart
+            data={chartData}
+            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+          >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis />
+            <XAxis dataKey="time" />
             <YAxis />
             <Tooltip />
-            <Area data={chartData} />
+            <Area type="monotone" dataKey="data" stroke="#82ca9d" fillOpacity={0.5} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
+         
     );
+    }
   }

@@ -1,0 +1,3 @@
+.chartContainer{
+  composes: chartContainer from "./tempLineChart.module.css";
+}

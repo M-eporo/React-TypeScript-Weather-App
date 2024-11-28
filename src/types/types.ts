@@ -17,7 +17,7 @@ export type AppContextType = {
   iconSort: string;
   setIconSort: React.Dispatch<React.SetStateAction<string>>;
   setSpecificDateData: React.Dispatch<React.SetStateAction<number>>;
-  detailChartData: HoursType;
+  detailChartData: HoursType
 };
 //O
 export type ChildrenPropsType = {
@@ -74,6 +74,8 @@ export type AreaChartData = {
   gust_kph: number;
   uv: number;
 }[];
+
+//export type DetailChartDataType = Array<HoursType>
 
 type LocationType = {
   country: string;
@@ -185,7 +187,7 @@ export type ForecastdaysType = {
   hour: HoursType;
 }[];
 type ForecastType = {
-  forecast: ForecastdaysType;
+  forecastday: ForecastdaysType;
 };
 export type HourType = {
   time_epoch: number;

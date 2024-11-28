@@ -20,7 +20,7 @@
   border: 1px solid rgba(0,0,0,0.2);
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.2);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 }
 .flexContainer + .flexContainer {
   margin-top: var(--space-sm);

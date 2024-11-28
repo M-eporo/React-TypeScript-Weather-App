@@ -10,8 +10,7 @@ export default function ResultsDetail() {
     return <p>データがありません。</p>
   }
   const { iconSort, detailChartData } = contextValues;
-  const chartData: { time: string; data: number }[] = [];
-
+  const chartData: { time: string; data: number; category: string }[] = [];
   switch (iconSort) {
     case "rain":
       detailChartData.forEach((item) => {
@@ -76,8 +75,6 @@ export default function ResultsDetail() {
         });
       });
   }
-
-  console.log(chartData);
   return <DetailChart chartData={ chartData } />;
 }
 

@@ -1,5 +1,5 @@
-import { useState, useEffect, createContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, createContext, useEffect } from "react";
+//import { useLocation } from "react-router-dom";
 import type {
   AppContextType,
   ChildrenPropsType,
@@ -45,12 +45,14 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   //Detailページの日付ボタンに応じたデータを取得
   const [specificDateData, setSpecificDateData] = useState(0);
   //specificDateDataに応じた日付のデータ
-  const [detailChartData, setDetailChartData] = useState<HoursType>([]);
+  const [detailChartData, setDetailChartData] = useState<HoursType>(
+    []
+  );
 
-  const location = useLocation();
+  /*const location = useLocation();
   useEffect(() => {
     setIsData(false);
-  }, [location, setIsData]);
+  }, [location, setIsData]);*/
 
   const getWeatherData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -106,7 +108,6 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
         }
       );
       setWeeklyData(forecastData);
-
       //LineChartで使用
       const hourData: {
         time: string;
@@ -127,18 +128,20 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
       }
       setLineChartData(hourDataParsed);
       setIsData(true);
-
       //DetailChartで使用。
       const dataForDetailChart: HoursType = [];
-
+      //const dataForDetailChartParsed = [];
       weatherData.forecast.forecastday.forEach(
         (item: ForecastdayType, index: number) => {
           if (specificDateData === index) {
             dataForDetailChart.push(...item.hour);
           }
-        }
-      );
-      
+          //dataForDetailChart.push(...item.hour);
+        });
+      /*for (let i = 0; i < dataForDetailChart.length; i += 24){
+        const chunk = dataForDetailChart.slice(i, i + 24);
+        dataForDetailChartParsed.push(chunk);
+      }*/
       setDetailChartData(dataForDetailChart);
     } catch (err) {
       alert(`${err.message}。エラーです。`);
@@ -176,6 +179,16 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     setSpecificDateData: setSpecificDateData,
     detailChartData: detailChartData,
   };
+  //detailページの日付がクリックされたら、エリアチャートのデータを切り替えるようの副作用
+  useEffect(() => {
+    const dataForDetailChart: HoursType = [];
+    allData?.forecast.forecastday.forEach((item, index: number) => {
+      if (specificDateData === index) {
+        dataForDetailChart.push(...item.hour);
+      }
+    });
+    setDetailChartData(dataForDetailChart);
+  }, [specificDateData, allData]);
   return (
     <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
