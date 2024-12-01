@@ -16,7 +16,9 @@ export type AppContextType = {
   setTopIcon: React.Dispatch<React.SetStateAction<string>>;
   iconSort: string;
   setIconSort: React.Dispatch<React.SetStateAction<string>>;
+  specificDateData: number;
   setSpecificDateData: React.Dispatch<React.SetStateAction<number>>;
+  detailTopData: DaysType;
   detailChartData: HoursType
 };
 //O
@@ -56,6 +58,14 @@ export type LineChartDataType = Array<{
   time: string;
   temp: number;
 }[]>
+export type AreaChartDataType = {
+  chartData: {
+    time: string;
+    data: number;
+    subData?: number;
+    category: string;
+  }[];
+}; 
 export type ButtonType = {
   btnType: "submit" | "button" | "reset" | "button";
   text: string;
@@ -64,7 +74,7 @@ export type ButtonType = {
   padding: string;
   context?: boolean;
 };
-
+/*
 export type AreaChartData = {
   temp_c: number;
   humidity: number;
@@ -74,9 +84,7 @@ export type AreaChartData = {
   gust_kph: number;
   uv: number;
 }[];
-
-//export type DetailChartDataType = Array<HoursType>
-
+*/
 type LocationType = {
   country: string;
   lat: number;
@@ -87,7 +95,7 @@ type LocationType = {
   region: string;
   tz_id: string;
 };
-type CurrentType = {
+export type CurrentType = {
   last_updated_epoch: number;
   last_updated: string;
   temp_c: number;
@@ -150,7 +158,7 @@ type AlertType = {
 type AlertsType = {
   alert: AlertType[];
 };
-type DayType = {
+export type DayType = {
   maxtemp_c: number;
   maxtemp_f: number;
   mintemp_c: number;
@@ -172,6 +180,28 @@ type DayType = {
   condition: ConditionType;
   uv: number;
 };
+export type DaysType = {
+  maxtemp_c: number;
+  maxtemp_f: number;
+  mintemp_c: number;
+  mintemp_f: number;
+  avgtemp_c: number;
+  avgtemp_f: number;
+  maxwind_mph: number;
+  maxwind_kph: number;
+  totalprecip_mm: number;
+  totalprecip_in: number;
+  totalsnow_cm: number;
+  avgvis_km: number;
+  avgvis_miles: number;
+  avghumidity: number;
+  daily_will_it_rain: number;
+  daily_chance_of_rain: number;
+  daily_will_it_snow: number;
+  daily_chance_of_snow: number;
+  condition: ConditionType;
+  uv: number;
+}[];
 export type ForecastdayType = {
   date: string;
   date_epoch: number;

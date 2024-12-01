@@ -8,6 +8,7 @@ import type {
   ForOnedayType,
   HourType,
   HoursType,
+  DaysType,
   LineChartDataType,
   ForecastdayType,
   AllWeatherDataType,
@@ -48,6 +49,8 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   const [detailChartData, setDetailChartData] = useState<HoursType>(
     []
   );
+  //DetailTopInfoにて使用
+  const [detailTopData, setDetailTopData] = useState<DaysType>([]);
 
   /*const location = useLocation();
   useEffect(() => {
@@ -127,22 +130,26 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
         hourDataParsed.push(chunk);
       }
       setLineChartData(hourDataParsed);
-      setIsData(true);
+      
       //DetailChartで使用。
       const dataForDetailChart: HoursType = [];
-      //const dataForDetailChartParsed = [];
       weatherData.forecast.forecastday.forEach(
         (item: ForecastdayType, index: number) => {
           if (specificDateData === index) {
             dataForDetailChart.push(...item.hour);
           }
-          //dataForDetailChart.push(...item.hour);
         });
-      /*for (let i = 0; i < dataForDetailChart.length; i += 24){
-        const chunk = dataForDetailChart.slice(i, i + 24);
-        dataForDetailChartParsed.push(chunk);
-      }*/
       setDetailChartData(dataForDetailChart);
+
+      //DetailTopInfoで使用
+      const dayData: DaysType = [];
+      weatherData.forecast.forecastday.forEach((item: ForecastdayType)  => {
+        return dayData.push(item.day);
+      });
+      console.log(dayData);
+      setDetailTopData(dayData);
+
+      setIsData(true);
     } catch (err) {
       alert(`${err.message}。エラーです。`);
     }
@@ -176,10 +183,12 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     setTopIcon: setTopIcon,
     iconSort: iconSort,
     setIconSort: setIconSort,
+    specificDateData: specificDateData,
     setSpecificDateData: setSpecificDateData,
+    detailTopData: detailTopData,
     detailChartData: detailChartData,
   };
-  //detailページの日付がクリックされたら、エリアチャートのデータを切り替えるようの副作用
+  //detailページの日付がクリックされたら、エリアチャートのデータを切り替えるための副作用
   useEffect(() => {
     const dataForDetailChart: HoursType = [];
     allData?.forecast.forecastday.forEach((item, index: number) => {

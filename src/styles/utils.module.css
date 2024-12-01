@@ -17,3 +17,11 @@
     justify-content: space-between;
   }
 }
+.bg {
+  margin-top: var(--space-lg);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}

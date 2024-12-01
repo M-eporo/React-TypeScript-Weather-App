@@ -2,11 +2,12 @@
   width: 70%;
   margin: var(--space-sm) auto 0;
   padding: 40px 0;
-  border: 1px solid rgba(0,0,0,0.2);
+  composes: bg from "./utils.module.css";
   border-radius: 30px;
+  /*border: 1px solid rgba(0,0,0,0.2);
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);*/
 }
 .wrapper > *{
   font-weight: 600;

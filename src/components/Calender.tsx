@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../context";
 import type { AppContextType } from "../types/types";
 import styles from "../styles/calender.module.css";
 
 export default function Calender() {
   const contextValues: AppContextType | undefined = useContext(AppContext);
+  const [activeBtn, setActiveBtn] = useState(0);
   if (!contextValues) {
     return <p>データが存在しません。</p>
   }
@@ -17,20 +18,24 @@ export default function Calender() {
   //const dayAfterTomorrowInISO = new Date(now);
   //dayAfterTomorrowInISO.setDate(now.getDate() + 2);
 
-  const handleClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, id: number) => {
     const target = e.currentTarget as HTMLLIElement;
-    contextValues.setSpecificDateData(parseInt(`${target.dataset.date}`,10));
+    contextValues.setSpecificDateData(parseInt(`${target.dataset.date}`, 10));
+    setActiveBtn(id);
   };
 
   return (
     <ul className={styles.calender}>
-      <li data-date={0} onClick={handleClick}>
+      <li data-date={0} onClick={(e) => handleClick(e, 0)}
+        className={activeBtn === 0 ? styles.active : ""}
+      >
         <p>
           {new Intl.DateTimeFormat("ja-JP", { weekday: "short" }).format(now)}
         </p>
         <p>{today}</p>
       </li>
-      <li data-date={1} onClick={handleClick}>
+      <li data-date={1} onClick={e => handleClick(e, 1)}
+        className={activeBtn === 1 ? styles.active : ""}>
         <p>
           {new Intl.DateTimeFormat("ja-JP", { weekday: "short" }).format(
             tomorrow
@@ -38,7 +43,8 @@ export default function Calender() {
         </p>
         <p>{today + 1}</p>
       </li>
-      <li data-date={2} onClick={handleClick}>
+      <li data-date={2} onClick={e => handleClick(e, 2)}
+        className={activeBtn === 2 ? styles.active : ""}>
         <p>
           {new Intl.DateTimeFormat("ja-JP", { weekday: "short" }).format(
             dayAfterTomorrow

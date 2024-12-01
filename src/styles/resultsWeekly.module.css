@@ -7,20 +7,19 @@
 .title {
   text-align: center;
 }
-.outerContainer {
-  margin-top: var(--space-sm);
-}
 .flexContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: center;
   padding: 50px 0 0;
+  composes: bg from "./utils.module.css";
+  /*
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,0.2);
   box-sizing: border-box;
   background-color: rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);*/
 }
 .flexContainer + .flexContainer {
   margin-top: var(--space-sm);

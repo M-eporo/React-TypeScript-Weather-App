@@ -1,18 +1,25 @@
 .calender {
+  composes: bg from "./utils.module.css";
   display: flex;
   justify-content: center;
   gap: 5em;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1em 1.5em;
 }
 .calender > li {
   width: 60px;
   aspect-ratio: 1 / 1;
-  border: 1px solid #000;
   border-radius: 50%;
   cursor: pointer;
 }
 .calender p {
   text-align: center;
 }
-.focus {
-  background-color: rgba(0,0,0,0.5);
+.calender > li.active {
+  border: none;
+  background-color: #160bdd33;
+  color: var(--gray-10);
+  transition: all 400ms;
 }
+

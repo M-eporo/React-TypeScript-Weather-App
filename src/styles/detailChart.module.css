@@ -1,3 +1,5 @@
 .chartContainer{
+  padding: 50px 0 0;
   composes: chartContainer from "./tempLineChart.module.css";
+  composes: bg from "./utils.module.css";
 }

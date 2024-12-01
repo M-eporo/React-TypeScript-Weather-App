@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
 import { AppContextType } from "../types/types";
+import DetailTopInfo from "../components/DetailTopInfo";
 import DetailChart from "./DetailChart";
 
 
@@ -10,13 +11,20 @@ export default function ResultsDetail() {
     return <p>データがありません。</p>
   }
   const { iconSort, detailChartData } = contextValues;
-  const chartData: { time: string; data: number; category: string }[] = [];
+  const chartData: {
+    time: string;
+    data: number;
+    subData?: number,
+    category: string
+  }[] = [];
+  console.log(detailChartData);
   switch (iconSort) {
     case "rain":
       detailChartData.forEach((item) => {
         chartData.push({
           time: item.time.split(" ")[1].slice(0, 2),
           data: item.precip_mm,
+          subData: item.chance_of_rain,
           category: iconSort,
         });
       });
@@ -35,6 +43,7 @@ export default function ResultsDetail() {
         chartData.push({
           time: item.time.split(" ")[1].slice(0, 2),
           data: item.snow_cm,
+          subData: item.chance_of_snow,
           category: iconSort,
         });
       });
@@ -52,7 +61,8 @@ export default function ResultsDetail() {
       detailChartData.forEach((item) => {
         chartData.push({
           time: item.time.split(" ")[1].slice(0, 2),
-          data: item.gust_kph,
+          data: item.wind_kph,
+          subData: item.gust_kph,
           category: iconSort,
         });
       });
@@ -75,6 +85,11 @@ export default function ResultsDetail() {
         });
       });
   }
-  return <DetailChart chartData={ chartData } />;
+  return (
+    <>
+      <DetailTopInfo />
+      <DetailChart chartData={chartData} />
+    </>
+  );
 }
 
