@@ -32,7 +32,7 @@ export type ContainerPropsType = {
 //O
 export type WeatherDataType = {
   country: string;
-  region: string;
+  name: string;
   text: string;
   icon: string;
   temperature: number;

@@ -11,14 +11,14 @@ const Results = () => {
   if (!contextValues) {
     return <p>Loading...</p>;
   }
-  const { country, region, text, icon, temperature, maxtemp_c, mintemp_c } = contextValues.todayBasicData;
+  const { country, name, text, icon, temperature, maxtemp_c, mintemp_c } = contextValues.todayBasicData;
   return (
     <>
       {contextValues.isData && (
       <>
         <div className={styles.wrapper}>
           <h3 className={styles.title}>
-            {region} / {country}
+            {name} / {country}
           </h3>
           <p className={styles.semiTitle}>{text}</p>
           <img className={styles.img} src={icon} alt={text} />

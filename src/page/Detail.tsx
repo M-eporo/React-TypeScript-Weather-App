@@ -6,14 +6,14 @@ import styles from "../styles/detail.module.css";
 
 export default function Detail() {
   return (
-    <>
+    <div className="detail">
       <Layout>
         <h2 className={styles.heading}>気象状況</h2>
         <Calender />
         <ListButton />
         <ResultsDetail />
       </Layout>
-    </>
+    </div>
   );
 }
 

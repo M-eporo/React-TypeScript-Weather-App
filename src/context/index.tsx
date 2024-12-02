@@ -22,7 +22,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   const [city, setCity] = useState<string>("");
   const [todayBasicData, setTodayBasicData] = useState<WeatherDataType>({
     country: "",
-    region: "",
+    name: "",
     text: "",
     icon: "",
     temperature: 0,
@@ -70,7 +70,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
       //トップの予報
       setTodayBasicData({
         country: weatherData.location.country,
-        region: weatherData.location.region,
+        name: weatherData.location.name,
         text: weatherData.current.condition.text,
         icon: weatherData.current.condition.icon,
         temperature: weatherData.current.temp_c,
@@ -158,7 +158,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   const clearData = () => {
     setTodayBasicData({
       country: "",
-      region: "",
+      name: "",
       text: "",
       icon: "",
       temperature: 0,

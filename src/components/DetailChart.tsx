@@ -11,7 +11,6 @@ import styles from "../styles/detailChart.module.css";
 import type { AreaChartDataType } from "../types/types";
 
 export default function DetailChart({ chartData }: AreaChartDataType) {
-  //console.log(chartData);
   if (chartData[0].category === "wind") {
     return (
       <div className={styles.chartContainer}>
