@@ -121,22 +121,13 @@ export default function DetailTopInfo() {
           {specificDateData === 0 ? (
             <>
               <p>
-                現在
-                <span className={`${styles.emphasis} ${styles.marginRight}`}>
-                  {current.temp_c}
-                </span>
-                ℃ 体感
+                現在<span className={styles.emphasis}>{current.temp_c}</span>℃
+                体感
                 <span className={styles.emphasis}>{current.feelslike_c}</span>℃
               </p>
-              <p className={styles.flexContainer}>
-                <span className={styles.smallText}>
-                  最高 : {filteredData[0].maxtemp_c}
-                </span>
-                ℃
-                <span className={styles.smallText}>
-                  最低 : {filteredData[0].mintemp_c}
-                </span>
-                ℃
+              <p className={styles.smallText}>
+                最高 : {filteredData[0].maxtemp_c}℃
+                最低 : {filteredData[0].mintemp_c}℃
               </p>
             </>
           ) : (
