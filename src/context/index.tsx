@@ -31,6 +31,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   });
   const [onedayData, setOnedayData] = useState<ForOnedayType>([]);
   const [isData, setIsData] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   //3日間天気予報で使用
   const [weeklyData, setWeeklyData] = useState<WeeklyDataType>([]);
   //LineChartで使用
@@ -61,6 +62,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     e.preventDefault();
     setCity("");
     setIsData(false);
+    setIsLoading(true);
     try {
       const response = await fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${city}&days=3&aqi=no&alerts=yes`
@@ -148,7 +150,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
       });
       console.log(dayData);
       setDetailTopData(dayData);
-
+      setIsLoading(false);
       setIsData(true);
     } catch (err) {
       alert(`${err.message}。エラーです。`);
@@ -176,6 +178,8 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     todayBasicData: todayBasicData,
     setIsData: setIsData,
     isData: isData,
+    setIsLoading: setIsLoading,
+    isLoading: isLoading,
     weeklyData: weeklyData,
     onedayData: onedayData,
     lineChartData: lineChartData,

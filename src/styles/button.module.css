@@ -15,4 +15,5 @@
 }
 .button:focus {
   border: 1px solid var(--gray-50);
+  color: #f9a735
 }

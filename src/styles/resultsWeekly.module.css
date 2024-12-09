@@ -1,25 +1,24 @@
 .container {
   margin-top: var(--space-lg);
   color: var(--black);
-  text-shadow: 0.5px 0.5px var(--white); 
+  /* text-shadow: 0.5px 0.5px var(--white);  */
   letter-spacing: 0.1em;
 }
 .title {
-  text-align: center;
+  font-size: var(--heading2);
+  text-shadow: 1px 1px var(--white);
+  letter-spacing: 3px;
+}
+.outerContainer {
+  composes: bg from "./utils.module.css";
 }
 .flexContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   padding: 50px 0 0;
-  composes: bg from "./utils.module.css";
-  /*
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.2);
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);*/
+  
 }
 .flexContainer + .flexContainer {
   margin-top: var(--space-sm);

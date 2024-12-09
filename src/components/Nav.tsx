@@ -1,12 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from '../styles/nav.module.css';
 
 const Nav = () => {
+  const location = useLocation();
+
+  console.log(location.pathname);
   return (
     <nav>
       <ul className={styles.list}>
-        <Link to="/">
-          <li>TOP</li>
+        <Link
+          to="/"
+          className={location.pathname === "/" ? styles.disable : styles.link}
+        >
+          <li>HOME</li>
         </Link>
       </ul>
     </nav>

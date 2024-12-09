@@ -1,7 +1,9 @@
 .container {
-  position: relative;
+  position: sticky;
+  top: 50px;
   max-width: 110px;
   margin-left: auto;
+  z-index: 100;
 }
 .topBtn {
   display: flex;
@@ -14,18 +16,19 @@
   cursor: pointer;
 }
 .list {
-  position: static;
-  display: none;
+  position: absolute;
   width: 100%;
-  margin-top: 1.4em;
+  padding: 1px 0;
   border-radius: 5px;
   background-color: rgba(0,0,0,0.4);
+  transform-origin: right;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: all 600ms;
 }
 .list.open {
-  display: revert;
-  position: absolute;
-  top: 25px;
-  z-index: 999;
+  transform: scaleX(1);
+  opacity: 1;
 }
 .item {
   display: flex;

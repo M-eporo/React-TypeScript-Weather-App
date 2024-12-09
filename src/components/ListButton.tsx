@@ -10,14 +10,14 @@ import type { AppContextType } from "../types/types";
 export default function ListButton() {
   const [isShow, setIsShow] = useState<boolean>(false);
   const contextValues: AppContextType | undefined = useContext(AppContext);
+  const toggleShow = () => {
+    setIsShow((prevState) => !prevState);
+  };
+
   if (!contextValues) {
     return <p>データが存在しません。</p>
   }
-  
-  const toggleShow = () => {
-    setIsShow(prevState => !prevState);
-  };
-  
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = e.currentTarget as HTMLDivElement;
     if (target.dataset.iconName && target.dataset.iconSort) {
@@ -33,7 +33,7 @@ export default function ListButton() {
         <FontAwesomeIcon icon={"fa-solid fa-chevron-down" as IconProp} />
       </div>
 
-      <div className={`${styles.list} ${isShow ? styles.open : ""}`}>
+      <div className={`${styles.list} ${isShow ? styles.open : ""}`} >
         <div
           className={styles.item}
           onClick={handleClick}
@@ -45,7 +45,6 @@ export default function ListButton() {
           />
           <p>気温</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}
@@ -55,7 +54,6 @@ export default function ListButton() {
           <FontAwesomeIcon icon={"fa-solid fa-droplet" as IconProp} />
           <p>湿度</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}
@@ -67,7 +65,6 @@ export default function ListButton() {
           />
           <p>降水</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}
@@ -77,7 +74,6 @@ export default function ListButton() {
           <FontAwesomeIcon icon={"fa-regular fa-snowflake" as IconProp} />
           <p>降雪</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}
@@ -87,7 +83,6 @@ export default function ListButton() {
           <FontAwesomeIcon icon={"fa-solid fa-gauge" as IconProp} />
           <p>気圧</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}
@@ -97,7 +92,6 @@ export default function ListButton() {
           <FontAwesomeIcon icon={"fa-solid fa-wind" as IconProp} />
           <p>風速</p>
         </div>
-
         <div
           className={styles.item}
           onClick={handleClick}

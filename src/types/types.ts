@@ -9,6 +9,8 @@ export type AppContextType = {
   todayBasicData: WeatherDataType;
   setIsData: React.Dispatch<React.SetStateAction<boolean>>;
   isData: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
   weeklyData: WeeklyDataType;
   onedayData: ForOnedayType;
   lineChartData: LineChartDataType;
@@ -66,6 +68,9 @@ export type AreaChartDataType = {
     category: string;
   }[];
 }; 
+export type CustomToolTipType = {
+  [key: string]: string;
+};
 export type ButtonType = {
   btnType: "submit" | "button" | "reset" | "button";
   text: string;

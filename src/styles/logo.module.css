@@ -1,3 +1,11 @@
+
 .title {
-  font-size: var(--small-heading1);
+  font-size: var(--heading1);
+  text-shadow: 2px 2px var(--white);
+}
+.subTitle {
+  font-size: var(--heading2);
+  text-shadow: 1.1px 1.1px var(--white);
+  text-align: center; 
+  text-decoration: underline;
 }

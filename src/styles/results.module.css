@@ -1,13 +1,9 @@
 .wrapper {
-  width: 70%;
+  width: 50%;
   margin: var(--space-sm) auto 0;
   padding: 40px 0;
   composes: bg from "./utils.module.css";
   border-radius: 30px;
-  /*border: 1px solid rgba(0,0,0,0.2);
-  box-sizing: border-box;
-  background-color: rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);*/
 }
 .wrapper > *{
   font-weight: 600;

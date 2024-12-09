@@ -11,7 +11,7 @@ const Form = () => {
   }
   return (
     <>
-      <h2 className={styles.title}>Today's Weather</h2>
+      <h2 className={styles.title}> </h2>
       <form 
         onSubmit={contextValues.getWeatherData}
         className={styles.form}

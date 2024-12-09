@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
 import { AppContextType } from "../types/types";
-import DetailTopInfo from "../components/DetailTopInfo";
 import DetailChart from "./DetailChart";
-
+import { KPH_TO_MPS } from "../constants";
 
 export default function ResultsDetail() {
   const contextValues: AppContextType | undefined = useContext(AppContext);
@@ -22,7 +21,7 @@ export default function ResultsDetail() {
     case "rain":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.precip_mm,
           subData: item.chance_of_rain,
           category: iconSort,
@@ -32,7 +31,7 @@ export default function ResultsDetail() {
     case "humidity":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.humidity,
           category: iconSort
         });
@@ -41,7 +40,7 @@ export default function ResultsDetail() {
     case "snow":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.snow_cm,
           subData: item.chance_of_snow,
           category: iconSort,
@@ -51,7 +50,7 @@ export default function ResultsDetail() {
     case "atmosphere":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.pressure_mb,
           category: iconSort,
         });
@@ -60,9 +59,9 @@ export default function ResultsDetail() {
     case "wind":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
-          data: item.wind_kph,
-          subData: item.gust_kph,
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
+          data:  Math.round((item.wind_kph / KPH_TO_MPS) * 10) / 10 ,
+          subData: Math.round((item.gust_kph / KPH_TO_MPS) * 10) / 10,
           category: iconSort,
         });
       });
@@ -70,7 +69,7 @@ export default function ResultsDetail() {
     case "uv":
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.uv,
           category: iconSort,
         });
@@ -79,17 +78,14 @@ export default function ResultsDetail() {
     default:
       detailChartData.forEach((item) => {
         chartData.push({
-          time: item.time.split(" ")[1].slice(0, 2),
+          time: `${item.time.split(" ")[1].slice(0, 2)}時`,
           data: item.temp_c,
           category: iconSort,
         });
       });
   }
   return (
-    <>
-      <DetailTopInfo />
-      <DetailChart chartData={chartData} />
-    </>
+    <DetailChart chartData={chartData} />  
   );
 }
 
