@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Noto+Sans+JP:wght@100..900&display=swap');
+
 :root {
   --white: #fff;
   --gray-10: #eee;
@@ -5,9 +7,7 @@
   --gray-50: #707070;
   --gray-75: #444;
   --black: #000;
-  --accent: #160bdd;
-  --max: #ff0000;
-  --min: #000091;
+  --accent: #f9a735;
   /* Typography */
   --body: clamp(16px, 0.95rem + 0.2vw, 18px);
   --display: clamp(72px, 1.83rem + 11.34vw, 160px);
@@ -31,14 +31,13 @@ body, h1, h2, h3, h4, h5, h6, p, ul, figure, img {
   list-style: none;
 }
 body {
+  position: relative;
   color: var(--black);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: var(--body);
   font-weight: 600;
-  background-image: url("../assets/beach.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #eee;
+  letter-spacing: 0.1em;
 }
 h1 {
   font-size: var(--heading1);
@@ -52,12 +51,7 @@ h3 {
 a {
   color: var(--black);
   text-decoration: none;
-}/*
-@media (hover: hover) {
-  a:hover {
-    color: var(--accent);
-  }
-}*/
+}
 p {
   line-height: 1.8;
 }

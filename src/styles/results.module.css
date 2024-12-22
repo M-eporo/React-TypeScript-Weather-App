@@ -2,17 +2,13 @@
   width: 50%;
   margin: var(--space-sm) auto 0;
   padding: 40px 0;
-  composes: bg from "./utils.module.css";
   border-radius: 30px;
+  background-color: rgba(255,255,255,0.5)
 }
 .wrapper > *{
   font-weight: 600;
   color: var(--black);
-  text-shadow: 0.5px 0.5px var(--white);
   letter-spacing: 0.1em;
-}
-.title {
-  color: var(--black);
 }
 .flexContainer {
   display: flex;
@@ -25,13 +21,11 @@
 .flexParagraph {
   display: flex;
   align-items: center;
-
 }
 .title {
   text-align: center;
-  text-shadow: 0.5px 0.5px var(--white);
   font-size: var(--heading2);
-  letter-spacing: 0.1em;
+  color: var(--black);
 }
 .img {
   width: 10%;
@@ -54,4 +48,10 @@
 .oblong {
   display: inline-block;
   transform: scaleY(2.0);
+}
+.max {
+  composes: max from "./utils.module.css";
+}
+.min {
+  composes: min from "./utils.module.css";
 }

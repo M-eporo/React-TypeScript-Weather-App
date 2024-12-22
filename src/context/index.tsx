@@ -14,6 +14,12 @@ import type {
   AllWeatherDataType,
 } from "../types/types";
 
+const sleep = async function () {
+  return await new Promise(resolve => {
+    setTimeout(resolve, 600);
+  })
+}
+
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 const apikey = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -65,7 +71,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${city}&days=3&aqi=no&alerts=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${city}&days=3&aqi=yes&alerts=yes`
       );
       const weatherData = await response.json();
       setAllData(weatherData);
@@ -94,6 +100,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
                 image: item.condition.icon,
                 precipitation: item.chance_of_rain,
                 temperature: item.temp_c,
+                chance_of_snow: item.chance_of_snow,
               });
             }
           }
@@ -107,6 +114,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
             date: day.date,
             icon: day.day.condition.icon,
             daily_chance_of_rain: day.day.daily_chance_of_rain,
+            daily_chance_of_snow: day.day.daily_chance_of_snow,
             maxtemp_c: day.day.maxtemp_c,
             mintemp_c: day.day.mintemp_c,
           };
@@ -148,9 +156,10 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
       weatherData.forecast.forecastday.forEach((item: ForecastdayType)  => {
         return dayData.push(item.day);
       });
-      console.log(dayData);
       setDetailTopData(dayData);
-      setIsLoading(false);
+      sleep().then(() => {
+        setIsLoading(false);
+      });
       setIsData(true);
     } catch (err) {
       alert(`${err.message}。エラーです。`);

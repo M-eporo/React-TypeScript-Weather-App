@@ -13,7 +13,6 @@ export default function ListButton() {
   const toggleShow = () => {
     setIsShow((prevState) => !prevState);
   };
-
   if (!contextValues) {
     return <p>データが存在しません。</p>
   }

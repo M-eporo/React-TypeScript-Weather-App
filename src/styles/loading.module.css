@@ -1,15 +1,15 @@
 .loading{
-    border: 0.6rem solid #7fd0ff;
-    border-top: 0.4rem solid #ccc9;
-    border-bottom: 0.4rem solid #ccc9;
-    border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-    margin: 3rem auto 0;
-    animation: spin 1.5s linear infinite;
+  border: 0.6rem solid var(--accent);
+  border-top: 0.6rem solid #aaa;
+  border-bottom: 0.6rem solid #aaa;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin: 3rem auto 0;
+  animation: spin 1.5s linear infinite;
 }
 
 @keyframes spin{
-    0%{ transform: rotate(0deg);}
-    100%{ transform: rotate(360deg);}
+  0%{ transform: rotate(0deg);}
+  100%{ transform: rotate(360deg);}
 }

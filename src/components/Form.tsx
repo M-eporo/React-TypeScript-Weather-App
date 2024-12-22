@@ -10,8 +10,7 @@ const Form = () => {
     return <p>Loading...</p>;
   }
   return (
-    <>
-      <h2 className={styles.title}> </h2>
+    <div className={styles.container}>
       <form 
         onSubmit={contextValues.getWeatherData}
         className={styles.form}
@@ -42,7 +41,7 @@ const Form = () => {
           context
         />
       </form>        
-    </>
+    </div>
   );
 };
 

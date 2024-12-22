@@ -47,12 +47,13 @@ export type ForOnedayType = {
   image: string;
   precipitation: number;
   temperature: number;
+  chance_of_snow: number;
 }[];
-
 export type WeeklyDataType = {
   date: string;
   icon: string;
   daily_chance_of_rain: number;
+  daily_chance_of_snow: number;
   maxtemp_c: number;
   mintemp_c: number;
 }[];

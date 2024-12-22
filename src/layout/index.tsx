@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Container from '../components/Container';
+import Background from "../components/Background";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -13,7 +14,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
           { children }
         </Container>
       </main>
-      <Footer/>
+      <Footer />
+      <Background />
     </>
   );
 };

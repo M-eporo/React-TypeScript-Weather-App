@@ -1,11 +1,12 @@
 .calender {
-  composes: bg from "./utils.module.css";
   display: flex;
   justify-content: center;
-  gap: 5em;
-  width: 40%;
+  gap: 2em;
+  width: 25%;
   margin: 0 auto;
+  margin-top: 0;
   padding: 0.8em 1.5em;
+  border-bottom: 1px solid #333;
 }
 .calender > li {
   width: 60px;
@@ -18,7 +19,7 @@
 }
 .calender > li.active {
   border: none;
-  background-color: #160bdd33;
+  background-color: #f9a73599;
   color: var(--gray-10);
   transition: all 400ms;
 }

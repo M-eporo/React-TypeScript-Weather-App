@@ -117,26 +117,29 @@ export default function DetailTopInfo() {
   switch (iconSort) {
     case "temperature":
       return (
-        <div>
+        <div className={styles.container}>
           {specificDateData === 0 ? (
             <>
-              <p>
-                現在<span className={styles.emphasis}>{current.temp_c}</span>℃
-                体感
+              <p className={styles.textArea}>
+                <span>現在</span>
+                <span className={styles.emphasis}>{current.temp_c}</span>℃
+                <span className={styles.itemName}>体感</span>
                 <span className={styles.emphasis}>{current.feelslike_c}</span>℃
               </p>
-              <p className={styles.smallText}>
-                最高 : {filteredData[0].maxtemp_c}℃
-                最低 : {filteredData[0].mintemp_c}℃
+              <p className={`${styles.smallText} ${styles.textArea}`}>
+                <span>最高 : {filteredData[0].maxtemp_c}℃</span>
+                <span className={styles.itemName}>
+                  最低 :{filteredData[0].mintemp_c}℃
+                </span>
               </p>
             </>
           ) : (
-            <p>
-              最高
-              <span className={`${styles.emphasis} ${styles.marginRight}`}>
+            <p className={styles.textArea}>
+              <span>最高</span>
+              <span className={styles.emphasis}>
                 {filteredData[0].maxtemp_c}
               </span>
-              ℃ 最低
+              ℃<span className={styles.itemName}>最低</span>
               <span className={styles.emphasis}>
                 {filteredData[0].mintemp_c}
               </span>
@@ -147,23 +150,23 @@ export default function DetailTopInfo() {
       );
     case "rain":
       return (
-        <div>
-          <p>
+        <div className={styles.container}>
+          <p className={styles.textArea}>
             総雨量 <span className={styles.emphasis}>{totalprecip_mm}mm</span>
           </p>
           <div>
             {filteredData[0].daily_will_it_rain ? (
-              <p className={styles.smallText}>雨がふるでしょう。</p>
+              <p className={`${styles.smallText} ${styles.textArea}`}>雨がふるでしょう。</p>
             ) : (
-              <p className={styles.smallText}>雨の心配はありません。</p>
+              <p className={`${styles.smallText} ${styles.textArea}`}>雨の心配はありません。</p>
             )}
             {totalprecip_mm > 50 && totalprecip_mm < 100 && (
-              <p className={styles.smallText}>
+              <p className={`${styles.smallText} ${styles.textArea}`}>
                 1日の総雨量が50mmを超えます、注意してください。
               </p>
             )}
             {totalprecip_mm > 100 && (
-              <p className={styles.smallText}>
+              <p className={`${styles.smallText} ${styles.textArea}`}>
                 1日の総雨量が50mmを超えます。安全な行動を心がけてください。
               </p>
             )}
@@ -172,20 +175,20 @@ export default function DetailTopInfo() {
       );
     case "humidity":
       return (
-        <div>
+        <div className={styles.container}>
           {specificDateData === 0 ? (
             <>
-              <p>
+              <p className={styles.textArea}>
                 現在<span className={styles.emphasis}>{current.humidity}%</span>
               </p>
-              <p>
+              <p className={styles.textArea}>
                 <span className={styles.smallText}>
                   平均湿度 {filteredData[0].avghumidity}%
                 </span>
               </p>
             </>
           ) : (
-            <p>
+            <p className={styles.textArea}>
               平均湿度
               <span className={styles.emphasis}>
                 {filteredData[0].avghumidity}
@@ -197,23 +200,23 @@ export default function DetailTopInfo() {
       );
     case "snow":
       return (
-        <div>
-          <p>
+        <div className={styles.container}>
+          <p className={styles.textArea}>
             降雪量 <span className={styles.emphasis}>{totalsnow_cm}cm</span>
           </p>
           <div>
             {filteredData[0].daily_will_it_snow ? (
-              <p className={styles.smallText}>雪が降るでしょう。</p>
+              <p className={`${styles.smallText} ${styles.textArea}`}>雪が降るでしょう。</p>
             ) : (
-              <p className={styles.smallText}>雪の心配はありません。</p>
+              <p className={`${styles.smallText} ${styles.textArea}`}>雪の心配はありません。</p>
             )}
             {totalsnow_cm >= 10 && (
-              <p className={styles.smallText}>
+              <p className={`${styles.smallText} ${styles.textArea}`}>
                 降雪量が10cmを超えるでしょう。大雪に注意してください。
               </p>
             )}
             {totalsnow_cm >= 5 && filteredData[0].totalsnow_cm <= 10 && (
-              <p className={styles.smallText}>
+              <p className={`${styles.smallText} ${styles.textArea}`}>
                 5cm以上の積雪が見込まれます。外出の際にはご注意ください。
               </p>
             )}
@@ -222,11 +225,11 @@ export default function DetailTopInfo() {
       );
     case "atmosphere":
       return (
-        <div>
-          <p>
+        <div className={styles.container}>
+          <p className={styles.textArea}>
             平均気圧 <span className={styles.emphasis}>{avgAtmos}</span>hPa
           </p>
-          <p>
+          <p className={styles.textArea}>
             <span className={styles.smallText}>最高 {maxAtmos}hPa</span>{" "}
             <span className={styles.smallText}>最低 {minAtmos}hPa</span>
           </p>
@@ -235,17 +238,17 @@ export default function DetailTopInfo() {
     case "wind":
       if (current.gust_kph && current.wind_kph) {
         return (
-          <div>
+          <div className={styles.container}>
             {specificDateData === 0 ? (
               <>
-                <p>
+                <p className={styles.textArea}>
                   {wind_dir}からの風
                   <span className={styles.emphasis}>
                     {Math.round((current.wind_kph / KPH_TO_MPS) * 10) / 10}
                     m/s
                   </span>
                 </p>
-                <p>
+                <p className={styles.textArea}>
                   <span className={styles.smallText}>
                     最大{Math.round((current.gust_kph / KPH_TO_MPS) * 10) / 10}
                     m/s
@@ -253,7 +256,7 @@ export default function DetailTopInfo() {
                 </p>
               </>
             ) : (
-              <p>
+              <p className={styles.textArea}>
                 風速
                 <span className={styles.emphasis}>
                   {Math.round((minWind_kph / KPH_TO_MPS) * 10) / 10}
@@ -272,8 +275,8 @@ export default function DetailTopInfo() {
       }
     case "uv":
       return (
-        <div>
-          <p>
+        <div className={styles.container}>
+          <p className={styles.textArea}>
             UV指数 <span className={styles.emphasis}>{maxUv}</span>
             {maxUv <= 2 && <span className={styles.smallText}>弱い</span>}
             {maxUv > 2 && maxUv <= 5 && (

@@ -5,8 +5,11 @@ const Logo = () => {
     return (
       <div className={styles.wrapper}>
         <Link to="/">
-          <h1 className={styles.title}>Weather Information</h1>
-          <p className={styles.subTitle}>React + TypeScript</p>
+          <div className={styles.titleWrapper}>
+            <div className={styles.original}>
+              <h1 className={styles.title}>Weather Information</h1>
+            </div>
+          </div>
         </Link>
       </div>
     );

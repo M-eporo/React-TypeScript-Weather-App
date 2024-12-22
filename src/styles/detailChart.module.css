@@ -1,6 +1,8 @@
 .chartContainer{
+  margin-top: 1em;
   padding: 50px 0 0;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.5);
   composes: chartContainer from "./tempLineChart.module.css";
-  composes: bg from "./utils.module.css";
 }
 

@@ -30,6 +30,9 @@ export default function ResultsForOneDay() {
                 {item.precipitation > 0 && (
                   <p className={styles.rain}>{item.precipitation}%</p>
                 )}
+                {item.chance_of_snow > 0 && (
+                  <p className={styles.snow}>{item.chance_of_snow}</p>
+                )}
                 <p className={styles.temp}>{item.temperature}℃</p>
               </Link>
             </div>

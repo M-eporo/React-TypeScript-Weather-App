@@ -5,15 +5,12 @@
 .link {
   pointer-events: revert;
   cursor: pointer;
-  color: var(--black);
-  text-shadow: 1px 1px var(--white);
   transition: all 600ms;
   &:hover{
-    color: var(--white);
+    color: var(--accent);
     text-shadow: 5px 5px var(--black);
   }
 }
-
 .disable {
   pointer-events: none;
   cursor: not-allowed;

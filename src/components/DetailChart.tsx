@@ -45,7 +45,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={chartData}
-              margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+              margin={{ top: 5, right: 35, bottom: 5, left: 10 }}
             >
               <defs>
                 <linearGradient id="colorPrecip" x1="0" y1="1" x2="0" y2="0">
@@ -59,7 +59,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                   <stop offset="50%" stopColor="#01F5EB" stopOpacity={0.5} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
               <XAxis
                 dataKey="time"
                 interval={2}
@@ -150,9 +150,9 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={chartData}
-              margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+              margin={{ top: 5, right: 35, bottom: 5, left: 10 }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
               <XAxis
                 dataKey="time"
                 interval={2}
@@ -161,7 +161,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
               <YAxis
                 domain={[0, 100]}
                 tick={{ fontSize: "12px", fill: "#333" }}
-                tickFormatter={value => `${value}%`}
+                tickFormatter={(value) => `${value}%`}
               />
               <Tooltip
                 contentStyle={{
@@ -220,7 +220,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+            margin={{ top: 5, right: 35, bottom: 5, left: 10 }}
           >
             <defs>
               <linearGradient id="colorHumidity" x1="0" y1="1" x2="0" y2="0">
@@ -228,7 +228,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                 <stop offset="50%" stopColor="#F9FF00" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
             <XAxis
               dataKey="time"
               interval={2}
@@ -267,7 +267,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+            margin={{ top: 5, right: 35, bottom: 5, left: 10 }}
           >
             <defs>
               <linearGradient id="colorGust" x1="0" y1="1" x2="0" y2="0">
@@ -275,7 +275,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                 <stop offset="50%" stopColor="#7BDD41" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
             <XAxis
               dataKey="time"
               interval={2}
@@ -319,7 +319,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+            margin={{ top: 5, right: 35, bottom: 5, left: 25 }}
           >
             <defs>
               <linearGradient id="colorAtmosphere" x1="0" y1="1" x2="0" y2="0">
@@ -327,7 +327,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                 <stop offset="70%" stopColor="#0F0F0F" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
             <XAxis
               dataKey="time"
               interval={2}
@@ -366,7 +366,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+            margin={{ top: 5, right: 35, bottom: 5, left: 25 }}
           >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="1" x2="0" y2="0">
@@ -374,7 +374,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                 <stop offset="30%" stopColor="#EA00FF" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
             <XAxis
               dataKey="time"
               interval={2}
@@ -409,7 +409,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={chartData}
-            margin={{ top: 5, right: 15, bottom: 5, left: 10 }}
+            margin={{ top: 5, right: 35, bottom: 5, left: 10 }}
           >
             <defs>
               <linearGradient id="color" x1="0" y1="1" x2="0" y2="0">
@@ -417,7 +417,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
                 <stop offset="40%" stopColor="#F93A22" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
             <XAxis
               dataKey="time"
               scale="point"
@@ -427,7 +427,7 @@ export default function DetailChart({ chartData }: AreaChartDataType) {
             <YAxis
               allowDecimals={false}
               tick={{ fontSize: "12px", fill: "#333" }}
-              tickFormatter={value => `${value}℃`}
+              tickFormatter={(value) => `${value}℃`}
             />
             <Tooltip
               contentStyle={{ backgroundColor: "transparent", border: "none" }}
