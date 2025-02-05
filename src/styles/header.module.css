@@ -3,3 +3,18 @@
   padding: var(--space-sm) 0 var(--space-xs);
   letter-spacing: 0.2em;
 }
+.innerContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+.userImg {
+  width: 96px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    filter: brightness(1.2);
+  }
+}

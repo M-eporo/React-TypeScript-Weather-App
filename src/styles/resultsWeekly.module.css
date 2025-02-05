@@ -1,7 +1,6 @@
 .container {
   position: relative;
   margin-top: var(--space-lg);
-  
 }
 .title {
   font-size: var(--heading2);
@@ -29,6 +28,9 @@
   align-items: center;
   column-gap: 1.5em;
 }
+.innerContainer {
+  display: flex;
+}
 .textContainer {
   text-align: left;
 }
@@ -49,7 +51,9 @@
 }
 .btnContainer {
   position: absolute;
-  
+}
+.snow {
+  composes: snow from "./utils.module.css";
 }
 .button {
   position: absolute;

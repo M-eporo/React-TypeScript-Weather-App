@@ -4,7 +4,6 @@ import styles from '../styles/nav.module.css';
 const Nav = () => {
   const location = useLocation();
 
-  console.log(location.pathname);
   return (
     <nav>
       <ul className={styles.list}>

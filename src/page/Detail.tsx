@@ -9,10 +9,9 @@ export default function Detail() {
   return (
     <div className="detail">
       <Layout>
-        <h2 className={styles.heading}>Weather Condition</h2>
         <ListButton />
-        <Calender />
         <div className={styles.flexContainer}>
+          <Calender />
           <DetailTopInfo />
         </div>
         <ResultsDetail />

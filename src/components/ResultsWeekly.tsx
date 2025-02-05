@@ -27,7 +27,7 @@ const ResultsWeekly = () => {
   return (
     <>
       <div className={styles.container}>
-        <h4 className={styles.title}>週間天気予報</h4>
+        {/* <h4 className={styles.title}>週間天気予報</h4> */}
         <div className={styles.slider} ref={sliderRef}>
           {contextValues.weeklyData.map((item, index: number) => (
             <div
@@ -45,23 +45,23 @@ const ResultsWeekly = () => {
                     }).format(new Date(item.date))}
                   </p>
                 )}
-                <div className={styles.innerContainer}>
+                {/* <div className={styles.innerContainer}> */}
                   <img src={item.icon} alt="icon" />
-                  {item.daily_chance_of_rain > 0 && (
-                    <p className={styles.rain}>{item.daily_chance_of_rain}%</p>
+                  {(item.daily_chance_of_rain > 0 && !item.daily_chance_of_snow) && (
+                    <p className={styles.rain}>降水 : {item.daily_chance_of_rain}%</p>
                   )}
                   {item.daily_chance_of_snow > 0 && (
-                    <p className={styles.snow}>{item.daily_chance_of_snow}%</p>
+                    <p className={styles.snow}>降雪 : {item.daily_chance_of_snow}%</p>
                   )}
-                </div>
-                <div className={styles.textContainer}>
+                {/* </div> */}
+                {/* <div className={styles.textContainer}> */}
                   <p className={`${styles.tempText} ${styles.max}`}>
                     最高 : {item.maxtemp_c}℃
                   </p>
                   <p className={`${styles.tempText} ${styles.min}`}>
                     最低 : {item.mintemp_c}℃
                   </p>
-                </div>
+                {/* </div> */}
               </div>
               <TempLineChart
                 lineChartData={contextValues.lineChartData[index]}

@@ -4,9 +4,13 @@
 .marginTop {
   margin-top: 180px;
 }
-.footer  p {
+.footer p {
+  font-family: "Roboto Condensed" ;
   font-size: 16px;
   color: var(--black);
   text-align: center;
   letter-spacing: 0.5em;
+}
+.marginTopNarrow {
+  margin-top: 60px;
 }

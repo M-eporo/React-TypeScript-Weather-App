@@ -1,23 +1,10 @@
 .titleWrapper {
   position: relative;
 }
-.copy {
-  position: absolute;
-  top: 0;
-  opacity: 0.1;
-  transform: scale(1.6) rotate(-8deg) translate(70px, 10px);
-}
 .title {
   font-size: var(--heading1);
   letter-spacing: 0.15em;
-}
-.subTitle {
-  font-family: Ephesis;
-  font-size: var(--heading2);
-  letter-spacing: 0.25em;
-  text-align: center; 
-  text-decoration: underline;
-}
-.copy > .subTitle {
-  margin-top: -20px;
+  font-family: "Roboto Condensed" ;
+  color:#565656;
+  text-shadow: 2px 2px 0px #33333333;
 }

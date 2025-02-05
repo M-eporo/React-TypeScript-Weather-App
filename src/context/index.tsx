@@ -5,7 +5,7 @@ import type {
   ChildrenPropsType,
   WeatherDataType,
   WeeklyDataType,
-  ForOnedayType,
+  ForOnedayType, 
   HourType,
   HoursType,
   DaysType,

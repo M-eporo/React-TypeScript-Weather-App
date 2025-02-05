@@ -27,11 +27,11 @@ export default function ResultsForOneDay() {
                   </p>
                 )}
                 <img className={styles.img} src={item.image} alt="weather-icon" />
-                {item.precipitation > 0 && (
+                {(item.precipitation > 0 && !item.chance_of_snow) &&(
                   <p className={styles.rain}>{item.precipitation}%</p>
                 )}
                 {item.chance_of_snow > 0 && (
-                  <p className={styles.snow}>{item.chance_of_snow}</p>
+                  <p className={styles.snow}>{item.chance_of_snow}%</p>
                 )}
                 <p className={styles.temp}>{item.temperature}℃</p>
               </Link>
