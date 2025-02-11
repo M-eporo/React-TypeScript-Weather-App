@@ -30,7 +30,9 @@ export type AppContextType = {
   specificDateData: number;
   setSpecificDateData: React.Dispatch<React.SetStateAction<number>>;
   detailTopData: DaysType;
-  detailChartData: HoursType
+  detailChartData: HoursType;
+  setInitLocation: React.Dispatch<React.SetStateAction<string>>;
+  initLocation: string;
 };
 //O
 export type ChildrenPropsType = {

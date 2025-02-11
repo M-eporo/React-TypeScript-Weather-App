@@ -9,7 +9,7 @@ import { login, logout } from "./features/userSlice";
 
 const App = () => {
   const dispatch = useAppDispatch();
-  
+
   useEffect(() => {
     auth.onAuthStateChanged((loginUser) => {
       if (loginUser) {
@@ -18,13 +18,12 @@ const App = () => {
           photo: loginUser.photoURL,
           email: loginUser.email,
           displayName: loginUser.displayName,
-        }))
+        }));
       } else {
         dispatch(logout());
       }
-    })
+    });
   }, [dispatch]);
-  
   return (
       <ContextProvider>
         <Routes>

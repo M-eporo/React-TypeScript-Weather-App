@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AppContext } from '../context';
 import { AppContextType } from "../types/types";
 import Button from "./Button";
+import Input from "./Input";
 import styles from '../styles/form.module.css';
 
 const Form = () => {
@@ -9,21 +10,18 @@ const Form = () => {
   if(!contextValues){
     return <p>Loading...</p>;
   }
+
   return (
     <div className={styles.container}>
-      <form 
-        onSubmit={contextValues.getWeatherData}
-        className={styles.form}
-      >
-        <input
-          className={styles.input}
-          onChange={e => contextValues.setCity(e.target.value)}
+      <form onSubmit={contextValues.getWeatherData} className={styles.form}>
+        <Input
+          inputType="text"
           value={contextValues.city}
-          type="text"
           name="region"
           id="region"
           placeholder="地域を入力"
-          required
+          onChange={contextValues.setCity}
+          inHeader={false}
         />
         <Button
           btnType="submit"
@@ -40,7 +38,7 @@ const Form = () => {
           padding="0.8em 0.4em"
           context
         />
-      </form>        
+      </form>
     </div>
   );
 };

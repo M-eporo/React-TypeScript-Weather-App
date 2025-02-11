@@ -3,7 +3,6 @@ import styles from '../styles/nav.module.css';
 
 const Nav = () => {
   const location = useLocation();
-
   return (
     <nav>
       <ul className={styles.list}>

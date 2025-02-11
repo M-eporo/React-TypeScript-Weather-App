@@ -13,6 +13,7 @@ import type {
   ForecastdayType,
   AllWeatherDataType,
 } from "../types/types";
+import { useAppSelector } from "../app/hooks";
 
 const sleep = async function () {
   return await new Promise(resolve => {
@@ -24,6 +25,8 @@ export const AppContext = createContext<AppContextType | undefined>(undefined);
 const apikey = import.meta.env.VITE_WEATHER_API_KEY;
 
 const ContextProvider = ({ children }: ChildrenPropsType) => {
+  const user = useAppSelector((state) => state.user.user);
+  const [initLocation, setInitLocation] = useState<string>("");
   const [allData, setAllData] = useState<AllWeatherDataType>();
   const [city, setCity] = useState<string>("");
   const [todayBasicData, setTodayBasicData] = useState<WeatherDataType>({
@@ -59,13 +62,20 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
   //DetailTopInfoにて使用
   const [detailTopData, setDetailTopData] = useState<DaysType>([]);
 
-  /*const location = useLocation();
   useEffect(() => {
-    setIsData(false);
-  }, [location, setIsData]);*/
+    if (user && initLocation) {  
+      getWeatherData({
+        preventDefault: () => {},
+      } as React.FormEvent<HTMLFormElement>);
+    }
+  }, [user, initLocation]);
 
   const getWeatherData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+      if (!city) {
+        console.error("都市名が空です。APIリクエストをスキップします。");
+        return;
+      }
     setCity("");
     setIsData(false);
     setIsLoading(true);
@@ -140,7 +150,6 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
         hourDataParsed.push(chunk);
       }
       setLineChartData(hourDataParsed);
-      
       //DetailChartで使用。
       const dataForDetailChart: HoursType = [];
       weatherData.forecast.forecastday.forEach(
@@ -165,7 +174,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
       alert(`${err.message}。エラーです。`);
     }
   };
-  //これはこのままで大丈夫なのか？
+  
   const clearData = () => {
     setTodayBasicData({
       country: "",
@@ -178,6 +187,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     });
     setIsData(false);
   };
+  
   const contextValue: AppContextType = {
     allData: allData,
     city: city,
@@ -200,6 +210,8 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     setSpecificDateData: setSpecificDateData,
     detailTopData: detailTopData,
     detailChartData: detailChartData,
+    setInitLocation: setInitLocation,
+    initLocation: initLocation,
   };
   //detailページの日付がクリックされたら、エリアチャートのデータを切り替えるための副作用
   useEffect(() => {
@@ -211,6 +223,7 @@ const ContextProvider = ({ children }: ChildrenPropsType) => {
     });
     setDetailChartData(dataForDetailChart);
   }, [specificDateData, allData]);
+  
   return (
     <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );

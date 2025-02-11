@@ -7,7 +7,7 @@ import styles from "../styles/detail.module.css";
 
 export default function Detail() {
   return (
-    <div className="detail">
+    
       <Layout>
         <ListButton />
         <div className={styles.flexContainer}>
@@ -16,6 +16,6 @@ export default function Detail() {
         </div>
         <ResultsDetail />
       </Layout>
-    </div>
+    
   );
 }

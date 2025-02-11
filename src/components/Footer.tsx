@@ -7,7 +7,6 @@ import styles from '../styles/footer.module.css';
 const Footer = () => {
   const contextValues: AppContextType | undefined = useContext(AppContext);
   const location = useLocation();
-  console.log(location);
   if (!contextValues) {
     return (
       <footer className={styles.footer}>

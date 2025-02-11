@@ -16,7 +16,6 @@ export default function ResultsDetail() {
     subData?: number,
     category: string
   }[] = [];
-  console.log(detailChartData);
   switch (iconSort) {
     case "rain":
       detailChartData.forEach((item) => {

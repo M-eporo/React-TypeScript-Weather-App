@@ -1,13 +1,11 @@
 .calender {
   display: flex;
   justify-content: center;
-  align-self: end;
   gap: 2em;
   width: 25%;
   margin-top: 0;
   padding: 0.8em 1.6em;
   border-radius: 15px;
-  background-color: rgba(255,255,255,0.5);
 }
 .calender > li {
   width: 60px;
